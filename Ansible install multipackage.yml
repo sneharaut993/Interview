@@ -3,7 +3,7 @@
   become: true
   tasks:
   - name: Installation of packages on Redhat family
-    when: ansible_os_family = "Redhat"
+    when: ansible_os_family == "Redhat"
     yum: path={{item}} state=present
     with_items:
     - vim
@@ -12,7 +12,7 @@
     - nginx
 
   - name: Installation of packages on Debain family
-    when: ansible_os_family = "Debain"
+    when: ansible_os_family == "Debain"
     apt: path={{item}} state=present
     with_items:
     - vim
